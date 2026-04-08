@@ -1,0 +1,352 @@
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaheen Ahmad | Full Stack Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.12);
+            border-color: #ffd700;
+        }
+
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            color: #ffd700;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: rgba(0,0,0,0.6);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-desc {
+            margin: 15px 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4a;
+            transform: scale(1.03);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .skills-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .skills-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .skill-item {
+            background: rgba(255,215,0,0.15);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 500;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .about-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #ffd700;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: #ffed4a;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .projects { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Zaheen Ahmad</h1>
+            <p class="tagline">MCA Graduate | Full Stack Developer | MERN & AI Enthusiast</p>
+            <div>
+                <span class="badge">💻 MERN Stack Expert</span>
+                <span class="badge">🤖 Computer Vision</span>
+                <span class="badge">🌐 4+ Live Projects</span>
+                <span class="badge">📱 Open for Opportunities</span>
+            </div>
+        </header>
+
+        <h2 style="text-align: center; margin-bottom: 30px;">✨ Featured Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3 class="project-title">🛍️ ShopZone - Full Stack E-Commerce</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">JWT Auth</span>
+                    <span class="tech-tag">TailwindCSS</span>
+                </div>
+                <p class="project-desc">
+                    A fully functional e-commerce platform with user authentication, product listing, 
+                    shopping cart, and secure checkout. Deployed on Vercel (frontend) & Render (backend).
+                </p>
+                <div class="btn-group">
+                    <a href="https://shopzone-eva.vercel.app" target="_blank" class="btn btn-primary">🔗 Live Demo</a>
+                    <a href="https://github.com/Zaheenahamd78/shopzone" target="_blank" class="btn btn-secondary">📂 GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">💬 Smart Chatbot AI</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">AI API</span>
+                </div>
+                <p class="project-desc">
+                    Interactive AI-powered chatbot that understands natural language, answers questions,
+                    and assists users with real-time responses.
+                </p>
+                <div class="btn-group">
+                    <a href="https://zaheenahamd78.github.io/smartchat-ai" target="_blank" class="btn btn-primary">🔗 Live Demo</a>
+                    <a href="https://github.com/Zaheenahamd78/smartchat-ai" target="_blank" class="btn btn-secondary">📂 GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">🪖 Helmet Safety Detection</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">YOLOv8</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Computer Vision</span>
+                </div>
+                <p class="project-desc">
+                    Real-time helmet detection system using deep learning to monitor safety compliance
+                    in construction sites, factories, and industrial zones.
+                </p>
+                <div class="btn-group">
+                    <a href="https://zaheenahamd78.github.io/safetyvision-helmet-detection" target="_blank" class="btn btn-primary">🔗 Live Demo</a>
+                    <a href="https://github.com/Zaheenahamd78/safetyvision-helmet-detection" target="_blank" class="btn btn-secondary">📂 GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3 class="project-title">🌤️ Weather App</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Weather API</span>
+                </div>
+                <p class="project-desc">
+                    Real-time weather application providing current conditions, 5-day forecast,
+                    humidity, wind speed, and interactive UI for any city worldwide.
+                </p>
+                <div class="btn-group">
+                    <a href="https://zaheenahamd78.github.io/weather--app" target="_blank" class="btn btn-primary">🔗 Live Demo</a>
+                    <a href="https://github.com/Zaheenahamd78/weather--app" target="_blank" class="btn btn-secondary">📂 GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-section">
+            <h3 class="skills-title">⚡ Technical Skills</h3>
+            <div class="skills-grid">
+                <span class="skill-item">React.js</span>
+                <span class="skill-item">Node.js</span>
+                <span class="skill-item">Express.js</span>
+                <span class="skill-item">MongoDB</span>
+                <span class="skill-item">JavaScript (ES6+)</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">HTML5/CSS3</span>
+                <span class="skill-item">TailwindCSS</span>
+                <span class="skill-item">REST APIs</span>
+                <span class="skill-item">JWT Auth</span>
+                <span class="skill-item">Git & GitHub</span>
+                <span class="skill-item">Vercel & Render</span>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h3>📖 About Me</h3>
+            <p style="max-width: 750px; margin: 20px auto;">
+                I'm <strong>Zaheen Ahmad</strong>, an MCA graduate and a <strong>Full Stack Developer</strong> 
+                who loves building real-world web applications. My strength lies in the <strong>MERN stack</strong> 
+                (MongoDB, Express.js, React, Node.js), and I also enjoy integrating <strong>AI and Computer Vision</strong> 
+                into practical solutions.
+            </p>
+            <p style="max-width: 750px; margin: 20px auto;">
+                I believe in writing clean code and creating user-friendly experiences. My project 
+                <strong>ShopZone</strong> is a complete e-commerce platform, while <strong>Helmet Safety Detection</strong> 
+                uses deep learning for real-time monitoring. I'm always eager to learn and collaborate on impactful projects.
+            </p>
+            <p style="margin-top: 15px;">
+                📍 India | 💼 Open for Full Stack / Software Developer Roles | 🚀 4+ Live Projects
+            </p>
+        </div>
+
+        <footer>
+            <h3>📫 Let's Connect</h3>
+            <div class="social-links">
+                <a href="https://github.com/Zaheenahamd78" target="_blank">🐙 GitHub</a>
+                <a href="https://www.linkedin.com/in/zaheen-ahmad-/" target="_blank">🔗 LinkedIn</a>
+                <a href="mailto:za9059508@gmail.com" target="_blank">📧 Email</a>
+            </div>
+            <p style="margin-top: 25px; opacity: 0.7;">
+                © 2026 Zaheen Ahmad | Built with 💻, ☕ & Passion
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+EOF
