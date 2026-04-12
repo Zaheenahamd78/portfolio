@@ -24,39 +24,297 @@
             padding: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: rgba(0,0,0,0.4);
-            border-radius: 30px;
-            margin-bottom: 40px;
-            backdrop-filter: blur(10px);
+        /* Hero Section Styles */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
         }
 
-        h1 {
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.08) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .glow-text {
             font-size: 3.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #ffd700, #ff6b6b);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, #ffd700);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .tagline {
-            font-size: 1.3rem;
-            opacity: 0.9;
+        .dynamic-text {
+            font-size: 2rem;
             margin-bottom: 20px;
+            color: #ffd700;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
         }
 
-        .badge {
+        .typed-text {
+            font-weight: bold;
+        }
+
+        .cursor {
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .hero-bio {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-custom {
             display: inline-block;
-            background: rgba(255,255,255,0.15);
-            padding: 8px 20px;
-            border-radius: 30px;
-            margin: 5px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(5px);
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
         }
 
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+        }
+
+        .btn-secondary-custom {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-custom:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            padding: 5px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: #1a1a2e;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            border: 1px solid rgba(255,215,0,0.3);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .floating-badge:first-of-type {
+            bottom: 10px;
+            left: -20px;
+        }
+
+        .floating-badge.second {
+            top: 20px;
+            right: -20px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Intro Section Styles */
+        .intro-section {
+            margin: 60px 0;
+        }
+
+        .intro-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .intro-greeting {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-align: center;
+        }
+
+        .intro-big-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            opacity: 0.95;
+        }
+
+        .intro-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, transparent);
+            margin: 30px auto;
+        }
+
+        .intro-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #ffd700;
+            text-align: center;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .intro-text p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .intro-callout {
+            background: rgba(255,215,0,0.1);
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 4px solid #ffd700;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .intro-highlights {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .highlight-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .highlight-box:hover {
+            transform: translateX(5px);
+            border-color: #ffd700;
+            background: rgba(255,215,0,0.08);
+        }
+
+        .highlight-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box h4 {
+            color: #ffd700;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.4;
+        }
+
+        /* Projects Section */
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -205,25 +463,133 @@
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .projects { grid-template-columns: 1fr; }
+            .glow-text { font-size: 2rem; }
+            .dynamic-text { justify-content: center; font-size: 1.2rem; }
+            .hero-content { flex-direction: column; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .image-wrapper { width: 250px; height: 250px; }
+            .floating-badge { font-size: 0.7rem; padding: 5px 12px; }
+            .floating-badge:first-of-type { left: -10px; }
+            .floating-badge.second { right: -10px; }
+            .intro-card { padding: 25px; }
+            .intro-grid { grid-template-columns: 1fr; gap: 25px; }
+            .intro-greeting { font-size: 1.8rem; }
+            .intro-big-text { font-size: 1rem; }
+            .intro-subtitle { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🚀 Zaheen Ahmad</h1>
-            <p class="tagline">MCA Graduate | Full Stack Developer | MERN & AI Enthusiast</p>
-            <div>
-                <span class="badge">💻 MERN Stack Expert</span>
-                <span class="badge">🤖 Computer Vision</span>
-                <span class="badge">🌐 4+ Live Projects</span>
-                <span class="badge">📱 Open for Opportunities</span>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="glow-text">🚀 Hi, I'm Zaheen Ahmad</h1>
+                <div class="dynamic-text">
+                    <span class="typed-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-desc">MCA Graduate | Full Stack Developer | MERN & AI Enthusiast</p>
+                <p class="hero-bio">
+                    I build <strong>scalable web applications</strong> with modern tech stack. 
+                    Passionate about <strong>MERN, AI, and Computer Vision</strong>. 
+                    Currently exploring <strong>Next.js and Cloud</strong>.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary-custom">View My Work 🚀</a>
+                    <a href="https://github.com/Zaheenahamd78" target="_blank" class="btn-secondary-custom">GitHub ⭐</a>
+                </div>
             </div>
-        </header>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="https://via.placeholder.com/320x320?text=Zaheen" alt="Zaheen Ahmad">
+                    <div class="floating-badge">
+                        <span>💻 4+ Projects</span>
+                    </div>
+                    <div class="floating-badge second">
+                        <span>🚀 Open to Work</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <h2 style="text-align: center; margin-bottom: 30px;">✨ Featured Projects</h2>
+    <div class="container">
+        <!-- Intro Section -->
+        <div class="intro-section">
+            <div class="intro-card">
+                <h2 class="intro-greeting">👋 Hi, I'm Zaheen Ahmad</h2>
+                <p class="intro-big-text">
+                    I am a <strong>Full Stack Developer</strong> with a strong focus on 
+                    <strong>MERN stack and AI integration</strong>. My journey in web development 
+                    began with <strong>HTML, CSS, and JavaScript</strong>, and over time, 
+                    I've expanded my skillset to include <strong>React, Node.js, MongoDB, Python, 
+                    and Computer Vision</strong>, enabling me to build dynamic, scalable, and 
+                    intelligent web applications.
+                </p>
+
+                <div class="intro-divider"></div>
+
+                <h3 class="intro-subtitle">✨ Let me introduce myself.</h3>
+                
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <p>
+                            I have experience in building <strong>full-stack web applications</strong> 
+                            from database schema to deployed UI. I've worked on <strong>4 live projects</strong>, 
+                            including a complete <strong>e-commerce platform (ShopZone)</strong>, an 
+                            <strong>AI-powered chatbot (SmartChatBot)</strong>, a 
+                            <strong>Computer Vision helmet detection system</strong>, and a 
+                            <strong>real-time weather app</strong>.
+                        </p>
+                        <p>
+                            My expertise lies in the <strong>MERN stack (MongoDB, Express.js, React, Node.js)</strong>, 
+                            which allows me to create <strong>seamless, user-friendly, and high-performance</strong> 
+                            web applications. I also enjoy integrating <strong>AI and Computer Vision</strong> 
+                            into practical solutions that solve real-world problems.
+                        </p>
+                        <p>
+                            In addition to my technical skills, I am passionate about 
+                            <strong>continuous learning and improvement</strong>. I believe that staying 
+                            updated with the latest trends and best practices is crucial for delivering 
+                            high-quality solutions. I'm currently exploring <strong>Next.js, TypeScript, 
+                            and Cloud Technologies</strong>.
+                        </p>
+                        <p class="intro-callout">
+                            🚀 If you're looking for a developer who can bring your ideas to life, 
+                            I would love to hear from you. Let's connect and discuss how we can work 
+                            together to achieve your goals.
+                        </p>
+                    </div>
+                    <div class="intro-highlights">
+                        <div class="highlight-box">
+                            <span class="highlight-icon">🎯</span>
+                            <h4>Core Expertise</h4>
+                            <p>MERN Stack, React.js, Node.js, MongoDB, Express.js</p>
+                        </div>
+                        <div class="highlight-box">
+                            <span class="highlight-icon">🤖</span>
+                            <h4>AI & Computer Vision</h4>
+                            <p>YOLOv8, OpenCV, Streamlit, Groq Llama 3.3 API</p>
+                        </div>
+                        <div class="highlight-box">
+                            <span class="highlight-icon">🚀</span>
+                            <h4>Live Projects</h4>
+                            <p>4 Production-Grade Applications Deployed</p>
+                        </div>
+                        <div class="highlight-box">
+                            <span class="highlight-icon">📚</span>
+                            <h4>Currently Learning</h4>
+                            <p>Next.js, TypeScript, Cloud Technologies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin-bottom: 30px;" id="projects">✨ Featured Projects</h2>
         <div class="projects">
-            <!-- ShopZone - Full Stack E-Commerce -->
+            <!-- ShopZone -->
             <div class="project-card">
                 <h3 class="project-title">🛍️ ShopZone - Full Stack E-Commerce</h3>
                 <div class="project-tech">
@@ -358,5 +724,44 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // Dynamic Text Animation
+        const words = [
+            "Full Stack Developer",
+            "MERN Stack Expert",
+            "AI & Computer Vision Enthusiast",
+            "4+ Live Projects"
+        ];
+
+        let i = 0;
+        let j = 0;
+        let isDeleting = false;
+        const typedTextSpan = document.querySelector(".typed-text");
+
+        function type() {
+            if (!typedTextSpan) return;
+            const currentWord = words[i];
+            if (isDeleting) {
+                typedTextSpan.textContent = currentWord.substring(0, j - 1);
+                j--;
+                if (j === 0) {
+                    isDeleting = false;
+                    i++;
+                    if (i === words.length) i = 0;
+                }
+            } else {
+                typedTextSpan.textContent = currentWord.substring(0, j + 1);
+                j++;
+                if (j === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(() => {}, 1500);
+                }
+            }
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+
+        type();
+    </script>
 </body>
 </html>
